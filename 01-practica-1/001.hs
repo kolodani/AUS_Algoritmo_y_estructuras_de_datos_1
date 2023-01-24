@@ -1,4 +1,3 @@
-import Control.Arrow (Arrow(first))
 {-
     DEFINIR LAS SIGUIENTES FUNCIONES Y DETERMINAR SU TIPO
 -}
