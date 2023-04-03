@@ -54,9 +54,24 @@ xor a b
     |a == b = False
     |otherwise = True
 
+-- j) max3, que toma tres números enteros y devuelve el máximo entre ellos
+max3 :: Int -> Int -> Int -> Int
+max3 x y z
+    |x > y && x > z = x
+    |y > x && y > z = y
+    |otherwise = z
 
+-- opcion B
+max2 :: Int -> Int -> Int
+max2 x y
+    |x > y = x
+    |otherwise = y
+
+max3B :: Int -> Int -> Int -> Int
+max3B x y z
+    |max2 x y > z = max2 x y
+    |otherwise = z
 
 {-
-j) max3, que toma tres números enteros y devuelve el máximo entre ellos
 k) swap, que toma un par y devuelve el par con sus componentes invertidas
 -}
