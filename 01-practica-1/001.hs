@@ -48,12 +48,15 @@ absSin x
 pot :: Int -> Int -> Int
 pot x y = y ^ x
 
-
+-- i) xor, el operador de disyunción exclusiva
+xor :: Bool -> Bool -> Bool
+xor a b
+    |a == b = False
+    |otherwise = True
 
 
 
 {-
-i) xor, el operador de disyunción exclusiva
 j) max3, que toma tres números enteros y devuelve el máximo entre ellos
 k) swap, que toma un par y devuelve el par con sus componentes invertidas
 -}
