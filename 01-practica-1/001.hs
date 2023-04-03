@@ -72,6 +72,6 @@ max3B x y z
     |max2 x y > z = max2 x y
     |otherwise = z
 
-{-
-k) swap, que toma un par y devuelve el par con sus componentes invertidas
--}
+-- k) swap, que toma un par y devuelve el par con sus componentes invertidas
+swap :: (Int, Int) -> (Int, Int)
+swap (x , y) = (y , x)
