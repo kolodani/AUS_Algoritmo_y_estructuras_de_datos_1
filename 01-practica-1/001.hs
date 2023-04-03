@@ -9,13 +9,15 @@ five x = 5
 apply :: (t1 -> t2) -> t1 -> t2
 apply f x = f x
 
+-- c) id, la función identidad
+id :: t -> t
+id x = x
 
 
 
 
 
 {-
-c) id, la función identidad
 d) first, que toma un par ordenado, y devuelve su primera componente
 e) derive, que aproxima la derivada de una función dada en un punto dado
 f ) sign, la función signo
