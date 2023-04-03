@@ -5,13 +5,16 @@
 five :: Int -> Int
 five x = 5
 
+-- b) apply, que toma una función y un valor, y devuelve el resultado de aplicar la funciónal valor dado
+apply :: (t1 -> t2) -> t1 -> t2
+apply f x = f x
+
+
 
 
 
 
 {-
-b) apply, que toma una función y un valor, y devuelve el resultado de aplicar la funciónal valor
-dado
 c) id, la función identidad
 d) first, que toma un par ordenado, y devuelve su primera componente
 e) derive, que aproxima la derivada de una función dada en un punto dado
