@@ -28,11 +28,22 @@ sign x
     |x < 0 = '-'
     |otherwise = '0'
 
+-- g) abs, la función valor absoluto (usando sign y sin usarla)
+-- con usar sign
+absCon :: (Int -> Char) -> Int -> Int
+absCon f x
+    |f x == '+' = x
+    |f x == '-' = -x
+    |otherwise = 0
 
-
+-- sin usar sign
+absSin :: Int -> Int
+absSin x
+    |x > 0 = x
+    |x < 0 = -x
+    |otherwise = 0
 
 {-
-g) abs, la función valor absoluto (usando sign y sin usarla)
 h) pot, que toma un entero y un número, y devuelve el resultado de elevar el segundo a la
 potencia dada por el primero
 i) xor, el operador de disyunción exclusiva
