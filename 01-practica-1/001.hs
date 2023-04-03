@@ -43,9 +43,16 @@ absSin x
     |x < 0 = -x
     |otherwise = 0
 
+-- h) pot, que toma un entero y un número, y devuelve el resultado de elevar el segundo a la
+-- potencia dada por el primero
+pot :: Int -> Int -> Int
+pot x y = y ^ x
+
+
+
+
+
 {-
-h) pot, que toma un entero y un número, y devuelve el resultado de elevar el segundo a la
-potencia dada por el primero
 i) xor, el operador de disyunción exclusiva
 j) max3, que toma tres números enteros y devuelve el máximo entre ellos
 k) swap, que toma un par y devuelve el par con sus componentes invertidas
