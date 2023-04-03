@@ -42,3 +42,17 @@ areaCuadrada f = f
 
 area :: Int -> Int
 area x = x ^ 2
+
+
+-- 2.D) Int -> Bool
+
+-- ejemplo 1
+esPar :: Int -> Bool
+esPar x = mod x 2 == 0
+
+-- ejemplo 2
+esMultiploDeTres :: Int -> Bool
+esMultiploDeTres x = mod x 3 == 0
+
+
+-- 2.E) Bool -> (Bool -> Bool)
