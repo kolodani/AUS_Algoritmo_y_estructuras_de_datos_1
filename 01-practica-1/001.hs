@@ -17,10 +17,16 @@ iden x = x
 first :: (Int, Int) -> Int
 first (x , y) = x
 
+-- e) derive, que aproxima la derivada de una función dada en un punto dado
+derive :: (Double -> Double) -> Double -> Double
+derive f x = (f (x + 0.0001) - f x) / 0.0001
+
+
+
+
 
 
 {-
-e) derive, que aproxima la derivada de una función dada en un punto dado
 f ) sign, la función signo
 g) abs, la función valor absoluto (usando sign y sin usarla)
 h) pot, que toma un entero y un número, y devuelve el resultado de elevar el segundo a la
