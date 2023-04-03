@@ -10,15 +10,16 @@ apply :: (t1 -> t2) -> t1 -> t2
 apply f x = f x
 
 -- c) id, la función identidad
-id :: t -> t
-id x = x
+iden :: Int -> Int
+iden x = x
 
-
+-- d) first, que toma un par ordenado, y devuelve su primera componente
+first :: (Int, Int) -> Int
+first (x , y) = x
 
 
 
 {-
-d) first, que toma un par ordenado, y devuelve su primera componente
 e) derive, que aproxima la derivada de una función dada en un punto dado
 f ) sign, la función signo
 g) abs, la función valor absoluto (usando sign y sin usarla)
