@@ -21,13 +21,17 @@ first (x , y) = x
 derive :: (Double -> Double) -> Double -> Double
 derive f x = (f (x + 0.0001) - f x) / 0.0001
 
-
+-- f ) sign, la función signo
+sign :: Int -> Char
+sign x
+    |x > 0 = '+'
+    |x < 0 = '-'
+    |otherwise = '0'
 
 
 
 
 {-
-f ) sign, la función signo
 g) abs, la función valor absoluto (usando sign y sin usarla)
 h) pot, que toma un entero y un número, y devuelve el resultado de elevar el segundo a la
 potencia dada por el primero
