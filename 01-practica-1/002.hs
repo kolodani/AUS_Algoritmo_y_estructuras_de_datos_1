@@ -1,58 +1,105 @@
 {-
     DAR AL MENOS DOS EJEMPLOS DE FUNCIONES QUE TENGAN CAADD UNO DE LOS SIGUIENTES TIPOS:
+
+a) (Int -> Int) -> Int
+b) Int -> (Int -> Int)
+c) (Int -> Int) -> (Int -> Int)
+d) Int -> Bool
+e) Bool -> (Bool -> Bool)
+f) (Int,Char) -> Bool
+g) (Int,Int) -> Int
+h) Int -> (Int,Int)
+i) a -> Bool
+j) a -> a
+
 -}
 
--- 2.A) (Int -> Int) -> Int
--- ejemplo 1
-sumaCincos :: (Int -> Int) -> Int
-sumaCincos f = f 5
+-- a) (Int -> Int) -> Int
+-- funcion auxiliar para usar en el ejemplo a
+auxiliarA :: Int -> Int
+auxiliarA x = x + 1
 
-sumaDos :: Int -> Int
-sumaDos x = x + 2
+sumar3A :: (Int -> Int) -> Int
+sumar3A f = f 3
 
--- ejemplo 2
-volumenCubo :: (Int -> Int) -> Int
-volumenCubo f = f 3
+-- funcion auxiliar para usar en el ejemplo a
+opuestoA :: Int -> Int
+opuestoA x = - x
 
-volumen :: Int -> Int
-volumen x = x ^ 3
+valorAbsolutoA :: (Int -> Int) -> Int
+valorAbsolutoA f = f (-3)
 
+-- b) Int -> (Int -> Int)
+addB :: Int -> (Int -> Int)
+addB x y = x + y
 
--- 2.B) Int -> (Int -> Int)
--- ejemplo 1
-suma :: Int -> (Int -> Int)
-suma x y = x + y
+productoB :: Int -> (Int -> Int)
+productoB x y = x * y
 
--- ejemplo 2
-potencia :: Int -> (Int -> Int)
-potencia x y = x ^ y
+-- c) (Int -> Int) -> (Int -> Int)
+-- funcion auxiliar para usar en el ejemplo c
+auxiliarC :: Int -> Int
+auxiliarC x = x * 2
 
+ejemploC :: (Int -> Int) -> (Int -> Int)
+ejemploC f x = f (f x)
 
--- 2.C) (Int -> Int) -> (Int -> Int)
--- ejemplo 1
-posicion :: (Int -> Int) -> (Int -> Int)
-posicion f = f
+-- funcion auxiliar para usar en el ejemplo c
+potenciaC :: Int -> Int
+potenciaC x = x * x
 
-ubicacion :: Int -> Int
-ubicacion x = x + 1
+ejemC :: (Int -> Int) -> (Int -> Int)
+ejemC f x = f (f x) * 3
 
--- ejemplo 2
-areaCuadrada :: (Int -> Int) -> (Int -> Int)
-areaCuadrada f = f
+-- d) Int -> Bool
+esParD :: Int -> Bool
+esParD x = if x `mod` 2 == 0 then True else False
 
-area :: Int -> Int
-area x = x ^ 2
+esPositivoD :: Int -> Bool
+esPositivoD x = if x > 0 then True else False
 
+-- e) Bool -> (Bool -> Bool)
+andE :: Bool -> (Bool -> Bool)
+andE x y = x && y
 
--- 2.D) Int -> Bool
+orE :: Bool -> (Bool -> Bool)
+orE x y = x || y
 
--- ejemplo 1
-esPar :: Int -> Bool
-esPar x = mod x 2 == 0
+-- f) (Int,Char) -> Bool
+ejemF :: (Int, Char) -> Bool
+ejemF (x, y)
+    | x == 10 && y == 'a' = True
+    | otherwise = False
 
--- ejemplo 2
-esMultiploDeTres :: Int -> Bool
-esMultiploDeTres x = mod x 3 == 0
+turnosF :: (Int, Char) -> Bool
+turnosF (x, y)
+    | x > 7 && x < 19 && y /= 'D' = True
+    | otherwise = False
 
+-- g) (Int,Int) -> Int
+sumaG :: (Int, Int) -> Int
+sumaG (x, y) = x + y
 
--- 2.E) Bool -> (Bool -> Bool)
+potenG :: (Int, Int) -> Int
+potenG (x, y) = x ^ y
+
+-- h) Int -> (Int,Int)
+alPlanoH :: Int -> (Int, Int)
+alPlanoH x = (x, 2*x)
+
+alCuboH :: Int -> (Int,Int)
+alCuboH x = (x, x^3)
+
+-- i) a -> Bool
+esVerdadI :: a -> Bool
+esVerdadI x = True
+
+esFalsoI :: a -> Bool
+esFalsoI x = False
+
+-- j) a -> a
+identidadJ :: a -> a
+identidadJ x = x
+
+ejemJ :: a -> a
+ejemJ x = x
