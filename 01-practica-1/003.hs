@@ -13,3 +13,14 @@ f' :: b -> b
 f' x = x
 -- la funcion f en este caso devuelve el primer elemento de la tupla (x,x), no utiliza ni y ni z
 -- por lo tanto, se puede redefinir como fst (x,x) o simplemente como x
+
+-- ? b) greater (x,y) = if x > y then True else False
+greater :: Ord a => (a, a) -> Bool
+greater (x,y) = if x > y then True else False
+-- redefino greater sin usar if
+greater' :: Ord a => (a, a) -> Bool
+greater' (x, y)
+        | x >= y = True
+        | otherwise = False
+-- la funcion greater toma una tupla y devuelve True si el primero es mayor y False si no
+-- para reescribirla use guardas para no usar if
