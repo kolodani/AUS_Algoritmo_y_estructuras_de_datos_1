@@ -7,7 +7,7 @@ five x = 5
 
 -- b) apply, que toma una función y un valor, y devuelve el resultado de aplicar la funciónal valor dado
 apply :: (t1 -> t2) -> t1 -> t2
-apply f x = f x
+apply f = f
 
 -- c) id, la función identidad
 iden :: Int -> Int
@@ -57,19 +57,19 @@ xor a b
 -- j) max3, que toma tres números enteros y devuelve el máximo entre ellos
 max3 :: Int -> Int -> Int -> Int
 max3 x y z
-    |x > y && x > z = x
-    |y > x && y > z = y
+    |x >= y && x >= z = x
+    |y >= x && y >= z = y
     |otherwise = z
 
 -- opcion B
 max2 :: Int -> Int -> Int
 max2 x y
-    |x > y = x
+    |x >= y = x
     |otherwise = y
 
 max3B :: Int -> Int -> Int -> Int
 max3B x y z
-    |max2 x y > z = max2 x y
+    |max2 x y >= z = max2 x y
     |otherwise = z
 
 -- k) swap, que toma un par y devuelve el par con sus componentes invertidas
