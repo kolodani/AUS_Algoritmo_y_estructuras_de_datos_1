@@ -24,3 +24,17 @@ greater' (x, y)
         | otherwise = False
 -- la funcion greater toma una tupla y devuelve True si el primero es mayor y False si no
 -- para reescribirla use guardas para no usar if
+
+-- ? c) f (x,y) = let z = x + y in g (z,y) where g (a,b) = a − b
+f2 :: Num a => (a, a) -> a
+f2 (x,y) = let z = x + y in g (z,y) where g (a,b) = a - b
+-- redefino f2 sin usar let ni where
+g :: Num a => (a, a) -> a
+g (x,y) = x - y
+
+f2' :: Num a => (a, a) -> a
+f2' (x,y) = g (x + y, y)
+-- la funcion f2 toma una tupla y devuelve la resta de la suma de sus elementos
+-- para reescribirla simplemente sumo los elementos de la tupla y se los paso a g
+-- g toma una tupla y devuelve la resta de sus elementos
+-- me parecio mas simple crear g aparte y usarla en f2' que reescribir f2' todo en una linea
