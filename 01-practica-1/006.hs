@@ -42,15 +42,17 @@ alguno :: [Bool] -> Bool
 alguno [] = False
 alguno (x:xs) = x || alguno (xs)
 
+-- c) todos, que devuelve True si todos los elementos de una lista de valores booleanos son True,
+--    y False en caso contrario
 
-
+todos :: [Bool] -> Bool
+todos [] = True
+todos (x:xs) = x && todos (xs)
 
 
 
 
 {-
-?  c) todos, que devuelve True si todos los elementos de una lista de valores booleanos son True,
-?     y False en caso contrario
 
 ?  d) codes, que dada una lista de caracteres, devuelve la lista de sus ordinales
 
