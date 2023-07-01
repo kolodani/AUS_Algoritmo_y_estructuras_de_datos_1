@@ -53,12 +53,14 @@ codes :: [Char] -> [Int]
 codes [] = []
 codes (x:xs) = fromEnum x : codes (xs)
 
+-- e) restos, que calcula la lista de los restos de la división de los elementos de una lista de
+--    números dada por otro número dado
+restos :: [Int] -> Int -> [Int]
+restos [] _ = []
+restos (x:xs) n = mod x n : restos (xs) n
+
 
 {-
-
-?  e) restos, que calcula la lista de los restos de la división de los elementos de una lista de
-?     números dada por otro número dado
-
 ?  f ) cuadrados, que dada una lista de números, devuelva la lista de sus cuadrados
 
 ?  g) longitudes, que dada una lista de listas, devuelve la lista de sus longitudes
