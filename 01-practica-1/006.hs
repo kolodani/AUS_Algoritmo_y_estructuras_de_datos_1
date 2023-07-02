@@ -86,9 +86,8 @@ letras :: [Char] -> [Char]
 letras [] = []
 letras (x:xs) = if (x >= 'a' && x <= 'z') || (x >= 'A' && x <= 'Z') then x : letras (xs) else letras (xs)
 
-
-
-{-
-?  k) masDe, que dada una lista de listas xss y un número n, devuelve la lista de aquellas listas
-?     de xss con longitud mayor que n
--}
+--  k) masDe, que dada una lista de listas xss y un número n, devuelve la lista de aquellas listas
+--    de xss con longitud mayor que n
+masDe :: [[a]] -> Int -> [[a]]
+masDe [] _ = []
+masDe (x:xs) n = if length x > n then x : masDe (xs) n else masDe (xs) n
