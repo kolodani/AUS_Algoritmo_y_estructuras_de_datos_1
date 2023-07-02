@@ -22,9 +22,7 @@ matches x xs = [y | y <- xs, y == x]
 unique :: [Int] -> [Int]
 unique xs = [x | (x,y) <- zip xs [1..], not (elem x (take y xs))]
 
-
-
-{-
-?    d) cuadrupla, que dados cuatro enteros a, b, c y d tales que 0 < a, b, c, d, ≤ 100, devuelve las
-?    cuadruplas (a, b, c, d) que cumplen a2 + b2 = c2 + d2.
--}
+-- d) cuadrupla, que dados cuatro enteros a, b, c y d tales que 0 < a, b, c, d, ≤ 100, devuelve las
+--    cuadruplas (a, b, c, d) que cumplen a2 + b2 = c2 + d2.
+cuadrupla :: [(Int, Int, Int, Int)]
+cuadrupla = [(a, b, c, d) | a <- [1..100], b <- [1..100], c <- [1..100], d <- [1..100], a^2 + b^2 == c^2 + d^2]
