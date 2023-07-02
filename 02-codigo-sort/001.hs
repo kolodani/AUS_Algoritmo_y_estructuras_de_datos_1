@@ -37,8 +37,14 @@ qsort (x:t) = qsort menores ++ [x] ++ qsort mayores
                 menores = [j | j <- t, j < x]
                 mayores = [j | j <- t, j >= x]
 
-
-
+--- Version 2
+qsort2 [] = []
+qsort2 [x] = [x]
+qsort2 (x:t) = let
+                    menores = [j | j <- t, j < x]
+                    mayores = [j | j <- t, j >= x]
+                in
+                    qsort2 menores ++ [x] ++ qsort2 mayores
 
 
 
