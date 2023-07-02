@@ -65,6 +65,11 @@ split2 (a:b:t) = (a:m, b:n)
                     (m,n) = split2 t
 
 --------------
+merge [] [] = []
+merge a [] = a
+merge [] b = b
+merge (x:xs) (y:ys) = if x < y then x:(merge xs (y:ys))
+                        else y:(merge (x:xs) ys)
 
 
 
