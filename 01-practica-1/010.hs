@@ -13,25 +13,48 @@
 data DigBin = Cero | Uno deriving (Show, Eq)
 
 -- Suma módulo 2
-(+) :: DigBin -> DigBin -> DigBin
-Cero + Cero = Cero
-Cero + Uno = Uno
-Uno + Cero = Uno
-Uno + Uno = Cero
+sumaM2 :: DigBin -> DigBin -> DigBin
+sumaM2 Cero Cero = Cero
+sumaM2 Cero Uno = Uno
+sumaM2 Uno Cero = Uno
+sumaM2 Uno Uno = Cero
 
 -- Producto módulo 2
-(*) :: DigBin -> DigBin -> DigBin
-Cero * Cero = Cero
-Cero * Uno = Cero
-Uno * Cero = Cero
-Uno * Uno = Uno
+prodM2 :: DigBin -> DigBin -> DigBin
+prodM2 Cero Cero = Cero
+prodM2 Cero Uno = Cero
+prodM2 Uno Cero = Cero
+prodM2 Uno Uno = Uno
+
+-- b) Definir las operaciones de suma binaria, producto por dos, cociente y resto de la división por
+--    dos para el tipo: type NumBin = [Digbin]
+--    donde convenimos que el primer elemento de las lista de dı́gitos es el dı́gito menos significativo
+--    del número representado.
+type NumBin = [DigBin]
+
+-- Suma binaria o binary sum
+bs :: NumBin -> NumBin -> NumBin
+bs [] [] = []
+bs (x:xs) [] = (x:xs)
+bs [] (y:ys) = (y:ys)
+bs (x:xs) (y:ys) = (sumaM2 x y) : (bs xs ys)
+
+-- Producto por dos o product by two
+pbt :: NumBin -> NumBin
+pbt [] = []
+pbt (x:xs) = (x:xs) ++ [Cero]
+
+-- Cociente o quotient
+q :: NumBin -> NumBin
+q [] = []
+q (x:xs) = xs
+
+-- Resto o remainder
+r :: NumBin -> NumBin
+r [] = []
+r (x:xs) = [x]
 
 {-
-?    b) Definir las operaciones de suma binaria, producto por dos, cociente y resto de la división por
-?    dos para el tipo:
-?    type NumBin = [Digbin]
-?    donde convenimos que el primer elemento de las lista de dı́gitos es el dı́gito menos significativo
-?    del número representado.
 ?    c) Redefinir las funciones del item anterior, observando una convención opuesta.
 ?    d) Definir funciones que multipliquen nÃo meros binarios de acuerdo a las dos convenciones.
 -}
