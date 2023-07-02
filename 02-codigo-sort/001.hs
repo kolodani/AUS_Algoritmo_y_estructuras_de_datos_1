@@ -46,6 +46,17 @@ qsort2 (x:t) = let
                 in
                     qsort2 menores ++ [x] ++ qsort2 mayores
 
+-------------------------------------------------------
+--- Merge Sort
+
+split [] = ([], [])
+split [a] = ([a], [])
+split (a:b:t) = let
+                    (m,n) = split t
+                in
+                    (a:m, b:n)
+
+
 
 
 
