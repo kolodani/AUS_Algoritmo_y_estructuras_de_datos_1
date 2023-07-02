@@ -56,8 +56,15 @@ split (a:b:t) = let
                 in
                     (a:m, b:n)
 
+--------------
 
+split2 [] = ([], [])
+split2 [a] = ([a], [])
+split2 (a:b:t) = (a:m, b:n)
+                where
+                    (m,n) = split2 t
 
+--------------
 
 
 
