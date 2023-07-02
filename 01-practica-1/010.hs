@@ -6,7 +6,7 @@
 ?    donde convenimos que el primer elemento de las lista de dı́gitos es el dı́gito menos significativo
 ?    del número representado.
 ?    c) Redefinir las funciones del item anterior, observando una convención opuesta.
-?    d) Definir funciones que multipliquen nÃo meros binarios de acuerdo a las dos convenciones.
+?    d) Definir funciones que multipliquen numeros binarios de acuerdo a las dos convenciones.
 -}
 
 -- a) Definir las operaciones de suma y producto módulo 2 para el tipo data DigBin = Cero |Uno
@@ -53,8 +53,3 @@ q (x:xs) = xs
 r :: NumBin -> NumBin
 r [] = []
 r (x:xs) = [x]
-
-{-
-?    c) Redefinir las funciones del item anterior, observando una convención opuesta.
-?    d) Definir funciones que multipliquen nÃo meros binarios de acuerdo a las dos convenciones.
--}
