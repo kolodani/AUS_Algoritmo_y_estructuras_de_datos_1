@@ -59,10 +59,16 @@ restos :: [Int] -> Int -> [Int]
 restos [] _ = []
 restos (x:xs) n = mod x n : restos (xs) n
 
+-- f ) cuadrados, que dada una lista de números, devuelva la lista de sus cuadrados
+cuadrados :: [Int] -> [Int]
+cuadrados [] = []
+cuadrados (x:xs) = x*x : cuadrados(xs)
+
+
+
+
 
 {-
-?  f ) cuadrados, que dada una lista de números, devuelva la lista de sus cuadrados
-
 ?  g) longitudes, que dada una lista de listas, devuelve la lista de sus longitudes
 
 ?  h) orden, que dada una lista de pares de números, devuelve la lista de aquellos pares en los
