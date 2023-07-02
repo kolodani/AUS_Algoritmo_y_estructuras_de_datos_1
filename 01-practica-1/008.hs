@@ -18,8 +18,13 @@ divisors x = if x > 0 then [y | y <- [1..x], x `mod` y == 0] else []
 matches :: Int -> [Int] -> [Int]
 matches x xs = [y | y <- xs, y == x]
 
+-- c) unique, que dada una lista xs de enteros, devuelve la lista con los elementos no repetidos de xs.
+unique :: [Int] -> [Int]
+unique xs = [x | (x,y) <- zip xs [1..], not (elem x (take y xs))]
+
+
+
 {-
-?    c) unique, que dada una lista xs de enteros, devuelve la lista con los elementos no repetidos de xs.
 ?    d) cuadrupla, que dados cuatro enteros a, b, c y d tales que 0 < a, b, c, d, ≤ 100, devuelve las
 ?    cuadruplas (a, b, c, d) que cumplen a2 + b2 = c2 + d2.
 -}
