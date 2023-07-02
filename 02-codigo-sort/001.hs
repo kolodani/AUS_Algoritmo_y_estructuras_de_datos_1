@@ -27,6 +27,17 @@ isort [] = []
 isort [x] = [x]
 isort (x:t) = insert x (isort t)
 
+-------------------------------------------------------
+--- Quick Sort
+
+qsort [] = []
+qsort [x] = [x]
+qsort (x:t) = qsort menores ++ [x] ++ qsort mayores
+            where
+                menores = [j | j <- t, j < x]
+                mayores = [j | j <- t, j >= x]
+
+
 
 
 
