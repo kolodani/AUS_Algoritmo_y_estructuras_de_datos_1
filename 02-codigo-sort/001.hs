@@ -88,22 +88,3 @@ msort lista = let
 msort2 [] = []
 msort2 [x] = [x]
 msort2 l = foldl merge [] [[x] | x <- l]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
