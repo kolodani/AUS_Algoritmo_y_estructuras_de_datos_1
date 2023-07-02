@@ -83,7 +83,11 @@ msort lista = let
                 in
                     merge i' j'
 
+-------------------------------------------------------
 
+msort2 [] = []
+msort2 [x] = [x]
+msort2 l = foldl merge [] [[x] | x <- l]
 
 
 
