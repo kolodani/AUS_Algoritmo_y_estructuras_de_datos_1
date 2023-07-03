@@ -18,11 +18,23 @@ sumaDivisores d = sum [x | x <- [1..d], mod d x == 0, x /= d]
 
 {-
 2)
-Escribir una función que recibe como argumento dos listas ordenadas, 
+Escribir una función que recibe como argumento dos listas ordenadas,
 y devuelve una lista ordenada fusión de las listas argumentos (No se debe usar ningún método de clasificación)
 
- juntar :: (Ord a)=> [a]->[a]->[a]
+juntar :: (Ord a)=> [a]->[a]->[a]
 -}
+
+juntar :: (Ord a) => [a] -> [a] -> [a]
+juntar a [] = a
+juntar [] b = b
+juntar (x:xs) (y:ys) = if x < y then (x:juntar xs (y:ys)) else (y:juntar ys (x:xs))
+
+
+
+
+
+
+
 
 {-
 Un CONJUNTO o SET, es una colección de ítems distintos, en la cual un ítem puede ser testeado  si es miembro, insertado o  borrado de la colección.
