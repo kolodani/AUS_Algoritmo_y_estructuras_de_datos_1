@@ -20,3 +20,10 @@ qsort [] = []
 qsort [a] = [a]
 qsort (x:xs) = qsort y ++ [x] ++ qsort ys
     where (y,ys) = particion x xs
+
+----------------------------------------------------------
+
+miZip :: [a] -> [b] -> [(a,b)]
+miZip [] _ = []
+miZip _ [] = []
+miZip (x:xs) (y:ys) = (x,y):miZip xs ys
