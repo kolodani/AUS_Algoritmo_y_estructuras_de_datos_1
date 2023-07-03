@@ -1,3 +1,6 @@
+module Set (Set, emptySet, setEmpty, inSet, addSet, delSet) where
+newtype Set a = Set [a] deriving (Show, Eq)
+
 sumaDivisores d = sum [x | x <- [1..d], mod d x == 0, x /= d]
 perfectos p = [x | x <- [1..p], sumaDivisores x == x]
 
@@ -96,3 +99,28 @@ nextqpr (CP (x:xs)) = x
 popqpr :: ColaPrio a -> ColaPrio a
 popqpr (CP []) = error "Cola vacia"
 popqpr (CP (x:xs)) = CP xs
+
+----------------------------------------------------------
+
+emptySet :: Set a
+setEmpty :: Set a -> Bool
+inSet :: (Eq a) => a -> Set a -> Bool
+addSet :: (Eq a) => a -> Set a -> Set a
+delSet :: (Eq a) => a -> Set a -> Set a
+unionSet :: (Eq a) => Set a -> Set a -> Set a
+
+emptySet = Set []
+
+setEmpty (Set []) = True
+setEmpty (Set [x]) = False
+
+inSet x (Set []) = False
+inSet x (Set (y:ys)) = x == y || inSet x (Set ys)
+
+addSet x (Set xs) = if inSet x (Set (xs)) then Set (xs) else addSet x (Set (x:xs))
+
+delSet x (Set []) = Set []
+delSet x (Set (y:ys)) = if x /= y then addSet y (delSet x (Set ys)) else delSet x (Set ys)
+
+unionSet (Set []) (Set (x)) = Set x
+unionSet (Set (x:xs)) (Set (y)) = if inSet x (Set y) then unionSet (Set xs) (Set y) else unionSet (Set xs) (Set (x:y))
