@@ -41,3 +41,7 @@ indexado :: [a] -> [(a, Int)]
 indexado lista = miZip lista [1..]
 
 ----------------------------------------------------------
+
+inserta :: (Ord a) => a -> [a] -> [a]
+inserta a [] = [a]
+inserta a (x:xs) = if a < x then a:x:xs else x:inserta a xs
