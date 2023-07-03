@@ -52,3 +52,29 @@ split [] = ([],[])
 split [x] = ([x],[])
 split (x:xs:t) = (x:m1,xs:m2)
     where (m1,m2) = split t
+
+----------------------------------------------------------
+
+data ArbolBin a = VacioAB | NodoAB a (ArbolBin a) (ArbolBin a) deriving (Show, Eq)
+
+mkNewTree :: (Ord a) => ArbolBin a
+addTree :: (Ord a) => a -> ArbolBin a -> ArbolBin a
+surfTree :: (Ord a) => a -> ArbolBin a -> Bool
+inOrderTree :: (Ord a) => ArbolBin a -> [a]
+
+mkNewTree = VacioAB
+
+addTree a VacioAB = NodoAB a VacioAB VacioAB
+addTree a (NodoAB n izq der)
+                            | a == n = NodoAB n izq der
+                            | a < n = NodoAB n (addTree a izq) der
+                            | a > n = NodoAB n izq (addTree a der)
+
+surfTree a VacioAB = False
+surfTree a (NodoAB n izq der)
+                            | a == n = True
+                            | a < n = surfTree a izq
+                            | a > n = surfTree a der
+
+inOrderTree VacioAB = []
+inOrderTree (NodoAB n izq der) = inOrderTree izq ++ [n] ++ inOrderTree der
