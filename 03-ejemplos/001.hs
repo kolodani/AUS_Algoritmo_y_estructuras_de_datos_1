@@ -78,3 +78,21 @@ surfTree a (NodoAB n izq der)
 
 inOrderTree VacioAB = []
 inOrderTree (NodoAB n izq der) = inOrderTree izq ++ [n] ++ inOrderTree der
+
+----------------------------------------------------------
+
+newtype ColaPrio a = CP[a] deriving (Show, Eq)
+
+mkqpr :: ColaPrio a
+mkqpr = CP []
+
+addqpr :: a -> ColaPrio a -> ColaPrio a
+addqpr a (CP p) = CP (p ++ [a])
+
+nextqpr :: ColaPrio a -> a
+nextqpr (CP []) = error "Cola vacia"
+nextqpr (CP (x:xs)) = x
+
+popqpr :: ColaPrio a -> ColaPrio a
+popqpr (CP []) = error "Cola vacia"
+popqpr (CP (x:xs)) = CP xs
