@@ -103,24 +103,23 @@ popqpr (CP (x:xs)) = CP xs
 ----------------------------------------------------------
 
 emptySet :: Set a
-setEmpty :: Set a -> Bool
-inSet :: (Eq a) => a -> Set a -> Bool
-addSet :: (Eq a) => a -> Set a -> Set a
-delSet :: (Eq a) => a -> Set a -> Set a
-unionSet :: (Eq a) => Set a -> Set a -> Set a
-
 emptySet = Set []
 
+setEmpty :: Set a -> Bool
 setEmpty (Set []) = True
-setEmpty (Set [x]) = False
+setEmpty (Set _) = False
 
+inSet :: (Eq a) => a -> Set a -> Bool
 inSet x (Set []) = False
 inSet x (Set (y:ys)) = x == y || inSet x (Set ys)
 
-addSet x (Set xs) = if inSet x (Set (xs)) then Set (xs) else addSet x (Set (x:xs))
+addSet :: (Eq a) => a -> Set a -> Set a
+addSet x (Set xs) = if inSet x (Set (xs)) then Set (xs) else Set (x:xs)
 
+delSet :: (Eq a) => a -> Set a -> Set a
 delSet x (Set []) = Set []
 delSet x (Set (y:ys)) = if x /= y then addSet y (delSet x (Set ys)) else delSet x (Set ys)
 
+unionSet :: (Eq a) => Set a -> Set a -> Set a
 unionSet (Set []) (Set (x)) = Set x
 unionSet (Set (x:xs)) (Set (y)) = if inSet x (Set y) then unionSet (Set xs) (Set y) else unionSet (Set xs) (Set (x:y))
