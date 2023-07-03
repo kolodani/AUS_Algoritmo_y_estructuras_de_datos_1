@@ -29,16 +29,10 @@ juntar a [] = a
 juntar [] b = b
 juntar (x:xs) (y:ys) = if x < y then (x:juntar xs (y:ys)) else (y:juntar ys (x:xs))
 
-
-
-
-
-
-
-
 {-
+3)
 Un CONJUNTO o SET, es una colección de ítems distintos, en la cual un ítem puede ser testeado  si es miembro, insertado o  borrado de la colección.
- La cantidad  de elementos distintos es lo que se denomina el tamaño del conjunto.
+La cantidad  de elementos distintos es lo que se denomina el tamaño del conjunto.
 
 Module Set (Set,  emptySet, setEmpty, inSet, addSet, delSet) where
 
@@ -52,7 +46,7 @@ delSet    :: (Eq a) => a -> Set a -> Set a
 
 unionSet :: (Eq a) => Set a -> Set a -> Set a
 
-Defina el tipo de dato e implemente los métodos del nuevo tipo de dato, 
+Defina el tipo de dato e implemente los métodos del nuevo tipo de dato,
 utilizando  listas no ordenadas y sin duplicados.El metodo unionSet (Union de dos conjuntos) se escribira haciendo uso de los metodos ya definidos.
 
 -}
